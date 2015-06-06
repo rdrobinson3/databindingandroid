@@ -84,6 +84,10 @@ public class RecyclerBindingActivity extends Activity {
                 super(binding.getRoot());
                 this.binding = binding;
             }
+
+            public RowUserBinding getBinding(){
+                return binding;
+            }
         }
 
         // Provide a suitable constructor (depends on the kind of dataset)
@@ -104,8 +108,9 @@ public class RecyclerBindingActivity extends Activity {
         // Replace the contents of a view (invoked by the layout manager)
         @Override
         public void onBindViewHolder(BindingHolder holder, int position) {
-            holder.binding.setUser(mDataset.get(position));
-
+            final User user = mDataset.get(position);
+            holder.getBinding().setUser(user);
+            holder.getBinding().executePendingBindings();
         }
 
         // Return the size of your dataset (invoked by the layout manager)
