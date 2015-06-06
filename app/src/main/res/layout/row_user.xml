@@ -4,23 +4,16 @@
         <variable name="user" type="io.mindmine.databindingdemo.User"/>
     </data>
     <LinearLayout
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal">
+        android:layout_height="match_parent">
         <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/userFirstName"
             android:text="@{user.firstName}"/>
         <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/userLastName"
             android:text="@{user.lastName}"/>
-
-
-        <Button
-            android:id="@+id/lonelyButton"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:text="Go Go RecyclerView"
-            android:layout_marginTop="50dp"/>
     </LinearLayout>
 </layout>

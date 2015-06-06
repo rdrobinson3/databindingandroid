@@ -1,10 +1,13 @@
 package io.mindmine.databindingdemo;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import io.mindmine.databindingdemo.databinding.ActivityMainBinding;
 
@@ -17,6 +20,14 @@ public class MainActivity extends Activity {
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         User user = new User("Test", "User");
         binding.setUser(user);
+
+        Button lonelyButton = (Button)this.findViewById(R.id.lonelyButton);
+        lonelyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, RecyclerBindingActivity.class));
+            }
+        });
     }
 
     @Override
