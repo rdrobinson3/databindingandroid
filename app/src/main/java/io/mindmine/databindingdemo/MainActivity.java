@@ -8,18 +8,30 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import io.mindmine.databindingdemo.databinding.ActivityMainBinding;
 
 public class MainActivity extends Activity {
 
+    private EditText changeNameET;
+    private User mUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.onCreate(savedInstanceState);
         ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        User user = new User("Test", "User");
-        binding.setUser(user);
+        mUser = new User("Test", "User");
+        binding.setUser(mUser);
+
+        changeNameET = (EditText)this.findViewById(R.id.changeNameET);
+
+        ((Button)this.findViewById(R.id.changeNameButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mUser.setFirstName(changeNameET.getText().toString());
+            }
+        });
 
         Button lonelyButton = (Button)this.findViewById(R.id.lonelyButton);
         lonelyButton.setOnClickListener(new View.OnClickListener() {
@@ -29,6 +41,7 @@ public class MainActivity extends Activity {
             }
         });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

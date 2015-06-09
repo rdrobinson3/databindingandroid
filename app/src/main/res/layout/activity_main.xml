@@ -16,6 +16,18 @@
             android:text="@{user.lastName}"/>
 
 
+        <EditText
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/changeNameET"
+            android:hint="New First Name" />
+
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Change Name"
+            android:id="@+id/changeNameButton"/>
+
         <Button
             android:id="@+id/lonelyButton"
             android:layout_width="250dp"
